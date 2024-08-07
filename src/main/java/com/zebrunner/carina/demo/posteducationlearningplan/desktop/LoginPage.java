@@ -1,12 +1,14 @@
-package com.zebrunner.carina.demo.posteducationlearningplan;
+package com.zebrunner.carina.demo.posteducationlearningplan.desktop;
 
+import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.CreateAccountBasePage;
+import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.LoginBasePage;
+import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
-import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-
-public class LoginPage extends AbstractPage {
+@DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = LoginBasePage.class)
+public class LoginPage extends LoginBasePage {
 
     @FindBy(xpath = "/input[@id='loginFrm_loginname']")
     public ExtendedWebElement loginNameInput;
@@ -27,17 +29,20 @@ public class LoginPage extends AbstractPage {
         super(driver);
     }
 
-    public CreateAccountPage clickRegistrationContinueButton() {
+    @Override
+    public CreateAccountBasePage clickRegistrationContinueButton() {
         registrationContinueButton.click();
         return new CreateAccountPage(driver);
     }
 
+    @Override
     public void login(String username, String password) {
         loginNameInput.type(username);
         passwordInput.type(password);
         loginButton.click();
     }
 
+    @Override
     public boolean accountIsLogged() {
         return accountText.getText().equals("My Account");
     }

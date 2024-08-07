@@ -1,11 +1,13 @@
-package com.zebrunner.carina.demo.posteducationlearningplan;
+package com.zebrunner.carina.demo.posteducationlearningplan.desktop;
 
+import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.CreateAccountBasePage;
+import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
-import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class CreateAccountPage extends AbstractPage {
+@DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = CreateAccountBasePage.class)
+public class CreateAccountPage extends CreateAccountBasePage {
 
     @FindBy(css = "#AccountFrm_agree")
     private ExtendedWebElement policyButton;
@@ -20,14 +22,17 @@ public class CreateAccountPage extends AbstractPage {
         super(driver);
     }
 
+    @Override
     public void acceptPolicy() {
         policyButton.click();
     }
 
+    @Override
     public boolean isAlertErrorDisplayed() {
         return alertErrorText.isElementPresent();
     }
 
+    @Override
     public void verifyRegistration() {
         continueButton.click();
     }

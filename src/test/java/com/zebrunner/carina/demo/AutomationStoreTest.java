@@ -1,10 +1,10 @@
 package com.zebrunner.carina.demo;
 
 import com.zebrunner.carina.core.IAbstractTest;
-import com.zebrunner.carina.demo.posteducationlearningplan.CartPage;
-import com.zebrunner.carina.demo.posteducationlearningplan.CreateAccountPage;
-import com.zebrunner.carina.demo.posteducationlearningplan.HomePage;
-import com.zebrunner.carina.demo.posteducationlearningplan.LoginPage;
+import com.zebrunner.carina.demo.posteducationlearningplan.desktop.CartPage;
+import com.zebrunner.carina.demo.posteducationlearningplan.desktop.CreateAccountPage;
+import com.zebrunner.carina.demo.posteducationlearningplan.desktop.HomePage;
+import com.zebrunner.carina.demo.posteducationlearningplan.desktop.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -33,7 +33,7 @@ public class AutomationStoreTest implements IAbstractTest {
     @Test
     public void testSearchProduct() {
         HomePage homePage = new HomePage(getDriver());
-        Assert.assertTrue(homePage.isPageOpened(), "Page is not opened correctly in the HomePage.");
+        Assert.assertTrue(homePage.isPageOpened(), "Page is not opened correctly in the AndroidHomePage.");
         String logoText = homePage.getLogoText();
         Assert.assertEquals(logoText, "Automation Test Store", "Logo text is not the same");
         homePage.searchForProduct("shirt");

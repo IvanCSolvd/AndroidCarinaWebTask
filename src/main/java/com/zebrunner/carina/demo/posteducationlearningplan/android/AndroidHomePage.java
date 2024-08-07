@@ -1,7 +1,10 @@
-package com.zebrunner.carina.demo.posteducationlearningplan;
+package com.zebrunner.carina.demo.posteducationlearningplan.android;
 
+import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.CartPageBase;
+import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.HomePageBase;
+import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.LoginBasePage;
+import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
-import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
@@ -10,7 +13,8 @@ import org.slf4j.LoggerFactory;
 import java.lang.invoke.MethodHandles;
 import java.util.List;
 
-public class HomePage extends AbstractPage {
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = AndroidHomePage.class)
+public class AndroidHomePage extends HomePageBase {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     @FindBy(css = "#filter_keyword")
@@ -22,40 +26,51 @@ public class HomePage extends AbstractPage {
     @FindBy(css = ".prdocutname")
     private List<ExtendedWebElement> searchResults;
 
-    @FindBy(css = ".header-logo img")
+    @FindBy(css = ".logo")
     private ExtendedWebElement logo;
 
-    @FindBy(css = "#customer_menu_top")
+    @FindBy(xpath = "//*[@id=\"topnav\"]/select/option[4]")
     private ExtendedWebElement loginAndRegistrationButton;
 
-    @FindBy(css = "li[data-id=menu_cart]")
+    @FindBy(xpath = "//*[@id=\"topnav\"]/select/option[6]")
     private ExtendedWebElement cartButton;
 
-    public HomePage(WebDriver driver) {
+    @FindBy(css = ".collapsed")
+    private ExtendedWebElement hamburgerButton;
+
+
+    public AndroidHomePage(WebDriver driver) {
         super(driver);
         open();
     }
 
+    @Override
     public void searchForProduct(String productName) {
+        hamburgerButton.click();
         searchInput.type(productName);
         searchButton.click();
-
     }
 
-    public LoginPage clickLoginButton() {
+    @Override
+    public LoginBasePage clickLoginButton() {
+        hamburgerButton.click();
         loginAndRegistrationButton.click();
-        return new LoginPage(driver);
+        return new AndroidLoginPage(driver);
     }
 
-    public CartPage clickCartButton() {
+    @Override
+    public CartPageBase clickCartButton() {
+        hamburgerButton.click();
         cartButton.click();
-        return new CartPage(driver);
+        return new AndroidCartPage(driver);
     }
 
+    @Override
     public String getLogoText() {
         return logo.getText();
     }
 
+    @Override
     public boolean isSearchIncluded(String search) {
         for (ExtendedWebElement searchResult : searchResults) {
             if (!searchResult.getText().contains(search)) {
@@ -65,6 +80,7 @@ public class HomePage extends AbstractPage {
         return true;
     }
 
+    @Override
     public void printSearchResults() {
         LOGGER.info("The results of the search are:");
         for (ExtendedWebElement searchResult : searchResults) {
