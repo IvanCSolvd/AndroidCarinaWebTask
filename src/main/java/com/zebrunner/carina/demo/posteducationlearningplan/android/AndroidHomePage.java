@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 import java.lang.invoke.MethodHandles;
 import java.util.List;
 
-@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = AndroidHomePage.class)
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = HomePageBase.class)
 public class AndroidHomePage extends HomePageBase {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
@@ -29,10 +29,10 @@ public class AndroidHomePage extends HomePageBase {
     @FindBy(css = ".logo")
     private ExtendedWebElement logo;
 
-    @FindBy(xpath = "//*[@id=\"topnav\"]/select/option[4]")
+    @FindBy(xpath = "//ul[@id=\"topnav\"]/select/option[4]")
     private ExtendedWebElement loginAndRegistrationButton;
 
-    @FindBy(xpath = "//*[@id=\"topnav\"]/select/option[6]")
+    @FindBy(xpath = "//ul[@id=\"topnav\"]/select/option[6]")
     private ExtendedWebElement cartButton;
 
     @FindBy(css = ".collapsed")

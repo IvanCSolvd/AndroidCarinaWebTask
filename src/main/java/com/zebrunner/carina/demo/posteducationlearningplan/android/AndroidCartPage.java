@@ -17,7 +17,7 @@ public class AndroidCartPage extends CartPageBase {
     }
 
     @Override
-    public boolean isCarIsEmptyTextPresent() {
+    public boolean isEmptyCarTextPresent() {
         return carIsEmptyText.isPresent();
     }
 }

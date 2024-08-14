@@ -8,5 +8,5 @@ public abstract class CartPageBase extends AbstractPage {
         super(driver);
     }
 
-    public abstract boolean isCarIsEmptyTextPresent();
+    public abstract boolean isEmptyCarTextPresent();
 }

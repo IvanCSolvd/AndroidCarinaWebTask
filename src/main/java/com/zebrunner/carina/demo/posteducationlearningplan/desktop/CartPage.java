@@ -16,8 +16,9 @@ public class CartPage extends CartPageBase {
         super(driver);
     }
 
+
     @Override
-    public boolean isCarIsEmptyTextPresent() {
+    public boolean isEmptyCarTextPresent() {
         return carIsEmptyText.isPresent();
     }
 }
