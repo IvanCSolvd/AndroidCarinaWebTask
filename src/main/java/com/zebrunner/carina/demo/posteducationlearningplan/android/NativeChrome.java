@@ -16,7 +16,7 @@ public class NativeChrome extends AbstractPage {
         super(driver);
     }
 
-    public void openNewTab(){
+    public void openNewTab() {
         seeTabsButton.click();
         newTabButton.click();
     }
