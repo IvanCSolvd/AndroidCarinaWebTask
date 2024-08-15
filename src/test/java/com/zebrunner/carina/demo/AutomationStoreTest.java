@@ -1,13 +1,13 @@
 package com.zebrunner.carina.demo;
 
 import com.zebrunner.carina.core.IAbstractTest;
+import com.zebrunner.carina.demo.posteducationlearningplan.android.NativeChrome;
 import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.CartPageBase;
 import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.CreateAccountBasePage;
+import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.HomePageBase;
 import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.LoginBasePage;
-import com.zebrunner.carina.demo.posteducationlearningplan.desktop.CartPage;
-import com.zebrunner.carina.demo.posteducationlearningplan.desktop.CreateAccountPage;
-import com.zebrunner.carina.demo.posteducationlearningplan.desktop.HomePage;
-import com.zebrunner.carina.demo.posteducationlearningplan.desktop.LoginPage;
+import com.zebrunner.carina.demo.posteducationlearningplan.desktop.*;
+import com.zebrunner.carina.demo.utils.MobileContextUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -49,5 +49,16 @@ public class AutomationStoreTest implements IAbstractTest {
         HomePage homePage = new HomePage(getDriver());
         CartPageBase cartPage = homePage.clickCartButton();
         Assert.assertTrue(cartPage.isEmptyCarTextPresent(), "Car is not empty");
+    }
+
+    @Test
+    public void testWebView(){
+        HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
+
+        MobileContextUtils contextHelper = new MobileContextUtils();
+        contextHelper.switchMobileContext(MobileContextUtils.View.NATIVE);
+
+        NativeChrome nativeChrome = new NativeChrome(getDriver());
+        nativeChrome.openNewTab();
     }
 }
