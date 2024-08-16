@@ -6,17 +6,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 public class NativeChrome extends AbstractPage {
-    @FindBy(xpath = "//android.widget.ImageButton[@content-desc=\'Switch or close tabs\']")
+    @FindBy(id = "com.android.chrome:id/tab_switcher_button")
     public ExtendedWebElement seeTabsButton;
 
-    @FindBy(xpath = "//android.widget.ImageView[@content-desc=\'New tab\']")
+    @FindBy(id = "com.android.chrome:id/new_tab_view")
     public ExtendedWebElement newTabButton;
 
     public NativeChrome(WebDriver driver) {
         super(driver);
     }
 
-    public void openNewTab() {
+    public void openNewTab(){
         seeTabsButton.click();
         newTabButton.click();
     }
