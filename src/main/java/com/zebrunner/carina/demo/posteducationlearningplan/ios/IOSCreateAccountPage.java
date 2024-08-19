@@ -1,4 +1,4 @@
-package com.zebrunner.carina.demo.posteducationlearningplan.android;
+package com.zebrunner.carina.demo.posteducationlearningplan.ios;
 
 import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.CreateAccountBasePage;
 import com.zebrunner.carina.utils.factory.DeviceType;
@@ -6,8 +6,8 @@ import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = CreateAccountBasePage.class)
-public class AndroidCreateAccountPage extends CreateAccountBasePage {
+@DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = CreateAccountBasePage.class)
+public class IOSCreateAccountPage extends CreateAccountBasePage {
 
     @FindBy(id = "AccountFrm_agree")
     private ExtendedWebElement policyButton;
@@ -18,7 +18,7 @@ public class AndroidCreateAccountPage extends CreateAccountBasePage {
     @FindBy(css = ".alert-error")
     private ExtendedWebElement alertErrorText;
 
-    protected AndroidCreateAccountPage(WebDriver driver) {
+    protected IOSCreateAccountPage(WebDriver driver) {
         super(driver);
     }
 

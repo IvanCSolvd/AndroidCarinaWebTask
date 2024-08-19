@@ -6,7 +6,7 @@ import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.CartPageB
 import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.CreateAccountBasePage;
 import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.HomePageBase;
 import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.LoginBasePage;
-import com.zebrunner.carina.demo.posteducationlearningplan.desktop.HomePage;
+import com.zebrunner.carina.demo.posteducationlearningplan.desktop.*;
 import com.zebrunner.carina.demo.utils.MobileContextUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -36,7 +36,7 @@ public class AutomationStoreTest implements IAbstractTest {
     @Test
     public void testSearchProduct() {
         HomePage homePage = new HomePage(getDriver());
-        Assert.assertTrue(homePage.isPageOpened(), "Page is not opened correctly in the AndroidHomePage.");
+        Assert.assertTrue(homePage.isPageOpened(), "Page is not opened correctly in the Home Page.");
         String logoText = homePage.getLogoText();
         Assert.assertEquals(logoText, "Automation Test Store", "Logo text is not the same");
         homePage.searchForProduct("shirt");
@@ -52,7 +52,7 @@ public class AutomationStoreTest implements IAbstractTest {
     }
 
     @Test
-    public void testWebView() {
+    public void testWebView(){
         HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
 
         MobileContextUtils contextHelper = new MobileContextUtils();

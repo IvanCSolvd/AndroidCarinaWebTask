@@ -1,4 +1,4 @@
-package com.zebrunner.carina.demo.posteducationlearningplan.android;
+package com.zebrunner.carina.demo.posteducationlearningplan.ios;
 
 import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.CreateAccountBasePage;
 import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.LoginBasePage;
@@ -7,8 +7,8 @@ import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = LoginBasePage.class)
-public class AndroidLoginPage extends LoginBasePage {
+@DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = LoginBasePage.class)
+public class IOSLoginPage extends LoginBasePage {
 
     @FindBy(id = "loginFrm_loginname")
     public ExtendedWebElement loginNameInput;
@@ -25,14 +25,14 @@ public class AndroidLoginPage extends LoginBasePage {
     @FindBy(css = ".maintext")
     private ExtendedWebElement accountText;
 
-    public AndroidLoginPage(WebDriver driver) {
+    public IOSLoginPage(WebDriver driver) {
         super(driver);
     }
 
     @Override
     public CreateAccountBasePage clickRegistrationContinueButton() {
         registrationContinueButton.click();
-        return new AndroidCreateAccountPage(driver);
+        return new IOSCreateAccountPage(driver);
     }
 
     @Override

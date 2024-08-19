@@ -1,4 +1,4 @@
-package com.zebrunner.carina.demo.posteducationlearningplan.android;
+package com.zebrunner.carina.demo.posteducationlearningplan.ios;
 
 import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.CartPageBase;
 import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.HomePageBase;
@@ -13,8 +13,8 @@ import org.slf4j.LoggerFactory;
 import java.lang.invoke.MethodHandles;
 import java.util.List;
 
-@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = HomePageBase.class)
-public class AndroidHomePage extends HomePageBase {
+@DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = HomePageBase.class)
+public class IOSHomePage extends HomePageBase {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     @FindBy(css = "#filter_keyword")
@@ -39,7 +39,7 @@ public class AndroidHomePage extends HomePageBase {
     private ExtendedWebElement hamburgerButton;
 
 
-    public AndroidHomePage(WebDriver driver) {
+    public IOSHomePage(WebDriver driver) {
         super(driver);
         open();
     }
@@ -55,14 +55,14 @@ public class AndroidHomePage extends HomePageBase {
     public LoginBasePage clickLoginButton() {
         hamburgerButton.click();
         loginAndRegistrationButton.click();
-        return new AndroidLoginPage(driver);
+        return new IOSLoginPage(driver);
     }
 
     @Override
     public CartPageBase clickCartButton() {
         hamburgerButton.click();
         cartButton.click();
-        return new AndroidCartPage(driver);
+        return new IOSCartPage(driver);
     }
 
     @Override
