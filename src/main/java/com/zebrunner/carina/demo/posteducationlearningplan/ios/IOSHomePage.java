@@ -5,6 +5,8 @@ import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.HomePageB
 import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.LoginBasePage;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
+import com.zebrunner.carina.webdriver.decorator.annotations.Predicate;
+import com.zebrunner.carina.webdriver.locator.ExtendedFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
@@ -17,25 +19,25 @@ import java.util.List;
 public class IOSHomePage extends HomePageBase {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
-    @FindBy(css = "#filter_keyword")
+    @ExtendedFindBy(iosPredicate = "value == 'Search Keywords'")
     private ExtendedWebElement searchInput;
 
-    @FindBy(css = ".button-in-search")
+    @ExtendedFindBy(iosPredicate = "name == '\uF002'")
     private ExtendedWebElement searchButton;
 
-    @FindBy(css = ".prdocutname")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == 'Search'`]")
     private List<ExtendedWebElement> searchResults;
 
-    @FindBy(css = ".logo")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeImage[`name == 'Automation Test Store'`]")
     private ExtendedWebElement logo;
 
-    @FindBy(xpath = "//ul[@id=\"topnav\"]/select/option[4]")
+    @ExtendedFindBy(iosPredicate = "name == 'Login'")
     private ExtendedWebElement loginAndRegistrationButton;
 
-    @FindBy(xpath = "//ul[@id=\"topnav\"]/select/option[6]")
+    @ExtendedFindBy(iosPredicate = "name == 'Cart'")
     private ExtendedWebElement cartButton;
 
-    @FindBy(css = ".collapsed")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == 'navegación'`][1]/XCUIElementTypeButton")
     private ExtendedWebElement hamburgerButton;
 
 

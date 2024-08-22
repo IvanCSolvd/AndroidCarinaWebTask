@@ -3,19 +3,21 @@ package com.zebrunner.carina.demo.posteducationlearningplan.ios;
 import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.CreateAccountBasePage;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
+import com.zebrunner.carina.webdriver.decorator.annotations.Predicate;
+import com.zebrunner.carina.webdriver.locator.ExtendedFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 @DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = CreateAccountBasePage.class)
 public class IOSCreateAccountPage extends CreateAccountBasePage {
 
-    @FindBy(id = "AccountFrm_agree")
+    @ExtendedFindBy(iosPredicate = "name == 'I have read and agree to the  Privacy Policy'")
     private ExtendedWebElement policyButton;
 
-    @FindBy(css = ".btn-orange")
+    @ExtendedFindBy(iosPredicate = "name == '\uF00C Continue'")
     private ExtendedWebElement continueButton;
 
-    @FindBy(css = ".alert-error")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == 'Create Account'`]/XCUIElementTypeOther[5]")
     private ExtendedWebElement alertErrorText;
 
     protected IOSCreateAccountPage(WebDriver driver) {

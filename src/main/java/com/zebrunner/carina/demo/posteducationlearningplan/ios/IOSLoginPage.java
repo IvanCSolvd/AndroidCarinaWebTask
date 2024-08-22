@@ -4,25 +4,27 @@ import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.CreateAcc
 import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.LoginBasePage;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
+import com.zebrunner.carina.webdriver.decorator.annotations.Predicate;
+import com.zebrunner.carina.webdriver.locator.ExtendedFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 @DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = LoginBasePage.class)
 public class IOSLoginPage extends LoginBasePage {
 
-    @FindBy(id = "loginFrm_loginname")
+    @ExtendedFindBy(iosPredicate = "name == 'Account Login'")
     public ExtendedWebElement loginNameInput;
 
-    @FindBy(css = "[title='Continue']")
+    @ExtendedFindBy(iosPredicate = "name == '\uF00C Continue'")
     private ExtendedWebElement registrationContinueButton;
 
-    @FindBy(id = "loginFrm_password")
+    @ExtendedFindBy(iosPredicate = "type == 'XCUIElementTypeSecureTextField'")
     private ExtendedWebElement passwordInput;
 
-    @FindBy(css = "[title='Login']")
+    @ExtendedFindBy(iosPredicate = "name == '\uF023 Login'")
     private ExtendedWebElement loginButton;
 
-    @FindBy(css = ".maintext")
+    @ExtendedFindBy(iosPredicate = "name == ' MY ACCOUNT'")
     private ExtendedWebElement accountText;
 
     public IOSLoginPage(WebDriver driver) {
