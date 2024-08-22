@@ -5,10 +5,8 @@ import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.HomePageB
 import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.LoginBasePage;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
-import com.zebrunner.carina.webdriver.decorator.annotations.Predicate;
 import com.zebrunner.carina.webdriver.locator.ExtendedFindBy;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

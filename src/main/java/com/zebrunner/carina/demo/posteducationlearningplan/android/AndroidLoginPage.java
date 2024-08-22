@@ -4,7 +4,6 @@ import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.CreateAcc
 import com.zebrunner.carina.demo.posteducationlearningplan.commonpages.LoginBasePage;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
-import com.zebrunner.carina.webdriver.decorator.annotations.Predicate;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
